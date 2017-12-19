@@ -23,11 +23,11 @@ class NYT(data.Dataset):
     Attributes:
         idx_to_word: the map between index and word
     """
-    gdrive_ids = '1-jkltSKoBuw3GsLkiGdiCdlmDeIhD6Xq'
-    dic_word = '1H9-YIIh8a2geTfbDPmH04U3vJHZT0YBY'
+    
 
     def __init__(self):
-
+        self.gdrive_ids = '1-jkltSKoBuw3GsLkiGdiCdlmDeIhD6Xq'
+        self.dic_word = '1H9-YIIh8a2geTfbDPmH04U3vJHZT0YBY'
         self.download()
 
         self.idx_to_word = pickle.load(open('./nyt/word_dic.pkl', 'rb'))
@@ -60,11 +60,11 @@ class NYT(data.Dataset):
     def download(self):
           """Download the new york times data and the index to word dictionary."""
        
-        gdd.download_file_from_google_drive(file_id=gdrive_ids,
+        gdd.download_file_from_google_drive(file_id=self.gdrive_ids,
                                         dest_path='./nyt/nyt_8447.zip',
                                         unzip=True)
 
-        gdd.download_file_from_google_drive(file_id=dic_word,
+        gdd.download_file_from_google_drive(file_id=self.dic_word,
                                         dest_path='./nyt/word_dic_nyt.pkl',
                                         unzip=False)
 

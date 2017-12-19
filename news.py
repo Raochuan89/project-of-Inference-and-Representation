@@ -23,10 +23,11 @@ class NEWS(data.Dataset):
     Attributes:
         idx_to_word: the map between index and word
     """
-    gdrive_ids = '1VmK6HE7ZohKoJheNkVZXvFEym1OYtt_z'
-    dic_word = '1E_QzruZO688uatG74gq6PembfiMtOFmk'
+    
 
     def __init__(self):
+        self.gdrive_ids = '1VmK6HE7ZohKoJheNkVZXvFEym1OYtt_z'
+        self.dic_word = '1E_QzruZO688uatG74gq6PembfiMtOFmk'
 
         self.download()
 
@@ -57,11 +58,11 @@ class NEWS(data.Dataset):
     def download(self):
         """Download the news by categorical data and the index to word dictionary."""
        
-        gdd.download_file_from_google_drive(file_id=gdrive_ids,
+        gdd.download_file_from_google_drive(file_id=self.gdrive_ids,
                                         dest_path='./news/news_6000.zip',
                                         unzip=True)
 
-        gdd.download_file_from_google_drive(file_id=dic_word,
+        gdd.download_file_from_google_drive(file_id=self.dic_word,
                                         dest_path='./news/word_dic.pkl',
                                         unzip=False)
 

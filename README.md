@@ -4,3 +4,4 @@ This is an implementation of latent Dirichlet allocation (LDA) derived from stoc
 
 The main class is ...
 
+We also provide two dataset classes in news.py and nyt.py, which returns a iterative python class of News by category dataset and New York Times dataset.
